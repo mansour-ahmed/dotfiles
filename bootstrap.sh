@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 
 DOTFILE_REPO_GITHUB_LINK=https://raw.githubusercontent.com/mansour-ahmed/dotfiles/master
-DOTFILES_REPO=~/Desktop/dotfiles
+DOTFILES_REPO=~/dotfiles
 
 main() {
     # Required to install packages
     ask_for_sudo
-    # To manage packages
     install_xcode_command_line_tools
+    # Gets dotfiles latest repo from master branch
     clone_dotfiles_repo
+    # To manage packages
     install_homebrew
     install_packages_with_brewfile
+    setup_macOS_defaults
 }
 
 function ask_for_sudo() {
@@ -62,6 +64,14 @@ function clone_dotfiles_repo() {
     fi
 }
 
+function pull_latest() {
+    substep "Pulling latest changes in ${1} repository"
+    if git -C $1 pull origin master &> /dev/null; then
+        return
+    else
+        error "Please pull the latest changes in ${1} repository manually"
+    fi
+}
 
 function install_homebrew() {
     info "Installing Homebrew"
@@ -118,12 +128,19 @@ function install_packages_with_brewfile() {
     fi
 }
 
-function pull_latest() {
-    substep "Pulling latest changes in ${1} repository"
-    if git -C $1 pull origin master &> /dev/null; then
-        return
+
+function setup_macOS_defaults() {
+    info "Updating macOS defaults"
+
+    current_dir=$(pwd)
+    cd ${DOTFILES_REPO}/macOS
+    if bash defaults.sh; then
+        cd $current_dir
+        success "macOS defaults updated successfully"
     else
-        error "Please pull the latest changes in ${1} repository manually"
+        cd $current_dir
+        error "macOS defaults update failed"
+        exit 1
     fi
 }
 
