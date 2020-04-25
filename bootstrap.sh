@@ -13,6 +13,7 @@ main() {
     install_homebrew
     install_packages_with_brewfile
     setup_macOS_defaults
+    configure_vscode
 }
 
 function ask_for_sudo() {
@@ -144,6 +145,19 @@ function setup_macOS_defaults() {
     fi
 }
 
+function configure_vscode() {
+    info "Configuring VSCode"
+    current_dir=$(pwd)
+    cd ${DOTFILES_REPO}/vscode
+    if bash configure_vscode.sh; then
+        cd $current_dir
+        success "VSCode successfully configured"
+    else
+        cd $current_dir
+        error "VSCode configuration failed"
+        exit 1
+    fi
+}
 
 # Utils
 
