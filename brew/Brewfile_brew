@@ -1,0 +1,10 @@
+brew "awscli"
+brew "fish"
+brew "git"
+brew "node"
+brew "tldr"
+brew "yarn"
+brew "mas"
+
+# temporary
+brew "contentful-cli"
