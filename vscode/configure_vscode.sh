@@ -36,6 +36,7 @@ function install_extensions() {
         code --install-extension formulahendry.auto-rename-tag
         # Utils
         code --install-extension christian-kohler.npm-intellisense
+        code --install-extension ms-vsliveshare.vsliveshare
         code --install-extension streetsidesoftware.code-spell-checker
         code --install-extension cssho.vscode-svgviewer
         code --install-extension steoates.autoimport
