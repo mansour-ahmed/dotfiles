@@ -95,8 +95,8 @@ function configure_dock() {
     ## 10: Put display to sleep
     ## 11: Launchpad
     ## 12: Notification Center
-    ## Top left screen corner → Mission Control
-    defaults write com.apple.dock wvous-tl-corner -int 2
+    ## Top left screen corner → Nothing
+    defaults write com.apple.dock wvous-tl-corner -int 0
     defaults write com.apple.dock wvous-tl-modifier -int 0
     ## Top right screen corner → Nothing
     defaults write com.apple.dock wvous-tr-corner -int 0
