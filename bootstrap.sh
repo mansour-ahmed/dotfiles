@@ -12,6 +12,8 @@ main() {
     # To manage packages
     install_homebrew
     install_packages_with_brewfile
+    change_shell_to_fish
+    setup_symlinks
     setup_macOS_defaults
     configure_vscode
     configure_firefox
@@ -130,6 +132,61 @@ function install_packages_with_brewfile() {
     fi
 }
 
+function change_shell_to_fish() {
+    info "Fish shell setup"
+    if grep --quiet fish <<< "$SHELL"; then
+        success "Fish shell already exists"
+    else
+        user=$(whoami)
+        substep "Adding Fish executable to /etc/shells"
+        if grep --fixed-strings --line-regexp --quiet \
+            "/usr/local/bin/fish" /etc/shells; then
+            substep "Fish executable already exists in /etc/shells"
+        else
+            if echo /usr/local/bin/fish | sudo tee -a /etc/shells > /dev/null;
+            then
+                substep "Fish executable successfully added to /etc/shells"
+            else
+                error "Failed to add Fish executable to /etc/shells"
+                exit 1
+            fi
+        fi
+        substep "Switching shell to Fish for \"${user}\""
+        if sudo chsh -s /usr/local/bin/fish "$user"; then
+            success "Fish shell successfully set for \"${user}\""
+        else
+            error "Please try setting Fish shell again"
+        fi
+    fi
+}
+
+function setup_symlinks() {
+    info "Setting up symlinks"
+
+    # Fish
+    symlink "fish:functions"   ${DOTFILES_REPO}/fish/functions   ~/.config/fish/functions
+    symlink "fish:config.fish" ${DOTFILES_REPO}/fish/config.fish ~/.config/fish/config.fish
+
+    success "Symlinks successfully setup"
+}
+
+function symlink() {
+    application=$1
+    point_to=$2
+    destination=$3
+    destination_dir=$(dirname "$destination")
+
+    if test ! -e "$destination_dir"; then
+        substep "Creating ${destination_dir}"
+        mkdir -p "$destination_dir"
+    fi
+    if rm -rf "$destination" && ln -s "$point_to" "$destination"; then
+        substep "Symlinking for \"${application}\" done"
+    else
+        error "Symlinking for \"${application}\" failed"
+        exit 1
+    fi
+}
 
 function setup_macOS_defaults() {
     info "Updating macOS defaults"
