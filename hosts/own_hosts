@@ -1,0 +1,24 @@
+############################################################################
+# This is from macOS itself
+############################################################################
+127.0.0.1	localhost
+255.255.255.255	broadcasthost
+::1             localhost
+fe80::1%lo0	localhost
+
+############################################################################
+# This is for docker-compose taking forever to load https://github.com/docker/compose/issues/3419#issuecomment-221793401ost
+############################################################################
+127.0.0.1 localhost localunixsocket localunixsocket.local localunixsocket.home
+
+
+############################################################################
+#
+#
+#
+# What is below is from https://github.com/StevenBlack/hosts
+#
+#
+#
+############################################################################
+
