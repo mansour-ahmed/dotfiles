@@ -14,6 +14,7 @@ main() {
     install_packages_with_brewfile
     change_shell_to_fish
     setup_symlinks
+    update_hosts_file
     setup_macOS_defaults
     configure_vscode
     configure_firefox
@@ -185,6 +186,35 @@ function symlink() {
     else
         error "Symlinking for \"${application}\" failed"
         exit 1
+    fi
+}
+
+function update_hosts_file() {
+    info "Updating /etc/hosts"
+    own_hosts_file_path=${DOTFILES_REPO}/hosts/own_hosts
+    downloaded_hosts_file_path=/etc/downloaded_hosts_file
+
+    if sudo cp "${own_hosts_file_path}" /etc/hosts; then
+        substep "Copying ${own_hosts_file_path} to /etc/hosts succeeded"
+    else
+        error "Copying ${own_hosts_file_path} to /etc/hosts failed"
+        exit 1
+    fi
+
+    if sudo wget --timeout=5 --tries=1 --quiet --output-document="${downloaded_hosts_file_path}" \
+        https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/fakenews-gambling-porn/hosts; then
+        substep "hosts file downloaded successfully"
+
+        if cat "${downloaded_hosts_file_path}" | \
+            sudo tee -a /etc/hosts > /dev/null; then
+            success "/etc/hosts updated"
+        else
+            error "Failed to update /etc/hosts"
+            exit 1
+        fi
+
+    else
+        error "Failed to download hosts file"
     fi
 }
 
