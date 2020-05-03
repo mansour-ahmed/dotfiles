@@ -15,9 +15,8 @@ cask "jumpcut"
 cask "keka"
 cask "ledger-live"
 cask "libreoffice"
-# cask "magnet" # From App store
+cask "firefox"
 cask "mullvadvpn"
-# cask "omnifocus" # From App storee
 cask "postman"
 cask "slack"
 cask "spotify"
