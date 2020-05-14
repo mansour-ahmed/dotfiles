@@ -8,5 +8,5 @@ brew "tldr"
 brew "wget"
 brew "yarn"
 
-# temporary
+##################### temporary #####################
 brew "contentful-cli"
