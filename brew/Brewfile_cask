@@ -1,6 +1,4 @@
 ##################### cask #####################
-# cask "adobe-creative-cloud"
-# cask "adobe-xd" # not available
 cask "1password"
 cask "anki"
 cask "authy"
@@ -14,9 +12,7 @@ cask "iterm2"
 cask "keka"
 cask "ledger-live"
 cask "libreoffice"
-cask "little-snitch"
 cask "firefox"
-cask "micro-snitch"
 cask "mullvadvpn"
 cask "postman"
 cask "slack"
@@ -33,6 +29,4 @@ cask "visual-studio-code"
 cask "vlc"
 
 ##################### temporary #####################
-
 cask "microsoft-teams"
-# cask "pulse"

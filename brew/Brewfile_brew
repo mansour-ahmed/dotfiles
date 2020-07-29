@@ -1,4 +1,3 @@
-brew "awscli"
 brew "fish"
 brew "git"
 brew "jq"
