@@ -1,25 +1,21 @@
 ##################### cask #####################
 cask "1password"
 cask "anki"
-cask "authy"
-cask "brave-browser"
 cask "cryptomator"
 cask "docker"
 cask "flux"
-cask "gifcapture"
+cask "firefox"
 cask "google-chrome"
-cask "iterm2"
+cask "karabiner-elements"
 cask "keka"
 cask "ledger-live"
 cask "libreoffice"
-cask "firefox"
+cask "microsoft-excel"
 cask "mullvadvpn"
 cask "postman"
 cask "slack"
 cask "spotify"
 cask "signal"
-cask "telegram"
-cask "thunderbird"
 cask "the-unarchiver"
 cask "tor-browser"
 cask "transmission"
@@ -27,6 +23,16 @@ cask "tresorit"
 cask "tutanota"
 cask "visual-studio-code"
 cask "vlc"
+cask "whatsapp"
+
 
 ##################### temporary #####################
 cask "microsoft-teams"
+cask "authy"
+cask "zoomus"
+
+##################### Install Manually #####################
+
+# Bazecor
+# Logi Options
+# pulse secure

@@ -5,7 +5,6 @@ brew "node"
 brew "mas"
 brew "tldr"
 brew "wget"
-brew "yarn"
 
 ##################### temporary #####################
 brew "contentful-cli"
