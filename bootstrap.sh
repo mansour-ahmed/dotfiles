@@ -17,7 +17,6 @@ main() {
     update_hosts_file
     setup_macOS_defaults
     configure_vscode
-    configure_firefox
 }
 
 function ask_for_sudo() {
@@ -247,19 +246,6 @@ function configure_vscode() {
     fi
 }
 
-function configure_firefox() {
-    info "Configuring Firefox"
-    current_dir=$(pwd)
-    cd ${DOTFILES_REPO}/firefox
-    if bash configure_firefox.sh; then
-        cd $current_dir
-        success "Firefox successfully configured"
-    else
-        cd $current_dir
-        error "Firefox configuration failed"
-        exit 1
-    fi
-}
 
 # Utils
 
