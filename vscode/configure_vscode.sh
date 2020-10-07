@@ -12,7 +12,6 @@ function install_extensions() {
     if [[ $? -eq 0 ]];then
         # Javascript
         code --install-extension dsznajder.es7-react-js-snippets    
-        code --install-extension jpoissonnier.vscode-styled-components
         code --install-extension eg2.tslint
         code --install-extension dbaeumer.vscode-eslint
         code --install-extension esbenp.prettier-vscode
@@ -28,15 +27,12 @@ function install_extensions() {
         code --install-extension EditorConfig.EditorConfig
         # Chrome debugger
         code --install-extension msjsdiag.debugger-for-chrome
-        # Docker
-        code --install-extension PeterJausovec.vscode-docker
         # HTML
         code --install-extension bradgashler.htmltagwrap
         code --install-extension formulahendry.auto-close-tag
         code --install-extension formulahendry.auto-rename-tag
         # Utils
         code --install-extension christian-kohler.npm-intellisense
-        code --install-extension ms-vsliveshare.vsliveshare
         code --install-extension streetsidesoftware.code-spell-checker
         code --install-extension cssho.vscode-svgviewer
         code --install-extension steoates.autoimport
@@ -50,7 +46,15 @@ function install_extensions() {
         # Theme
         code --install-extension johnpapa.winteriscoming
 
-        # Vue
+        ## TEMP disabled
+        # code --install-extension jpoissonnier.vscode-styled-components
+
+        # code --install-extension PeterJausovec.vscode-docker
+
+        # code --install-extension ms-vsliveshare.vsliveshare
+
+        # code --instal-extension hashicorp.terraform
+
         # code --install-extension sdras.vue-vscode-snippets
         # code --install-extension octref.vetur
         fi
