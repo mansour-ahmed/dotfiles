@@ -166,6 +166,7 @@ function setup_symlinks() {
     # Fish
     symlink "fish:functions"   ${DOTFILES_REPO}/fish/functions   ~/.config/fish/functions
     symlink "fish:config.fish" ${DOTFILES_REPO}/fish/config.fish ~/.config/fish/config.fish
+    symlink "karabiner" ${DOTFILES_REPO}/karabiner ~/.config/karabiner
 
     success "Symlinks successfully setup"
 }
