@@ -169,7 +169,7 @@
                         "product_id": 8705,
                         "vendor_id": 4617
                     },
-                    "ignore": false,
+                    "ignore": true,
                     "manipulate_caps_lock_led": false,
                     "simple_modifications": []
                 },
