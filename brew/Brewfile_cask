@@ -28,7 +28,8 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 
-
+##################### temporary #####################
+cask "microsoft-teams"
 
 ##################### Install Manually #####################
 
