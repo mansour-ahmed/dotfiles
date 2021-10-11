@@ -16,14 +16,16 @@ cask "little-snitch"
 cask "libreoffice"
 cask "mullvadvpn"
 cask "postman"
+cask "protonmail-bridge"
+cask "protonvpn"
 cask "rocket-typist"
 cask "slack"
 cask "spotify"
 cask "signal"
-cask "sqlectron"
+cask "tableplus"
 cask "the-unarchiver"
-cask "tor-browser"
 cask "transmission"
+cask "trezor-suite"
 cask "tresorit"
 cask "tutanota"
 cask "visual-studio-code"
@@ -31,10 +33,10 @@ cask "vlc"
 
 ##################### temporary #####################
 cask "microsoft-teams"
+cask "dash"
 
 ##################### Install Manually #####################
 
 # Bazecor
 # Logi Options
-# pulse secure
 # Mouseless
