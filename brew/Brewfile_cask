@@ -34,6 +34,7 @@ cask "vlc"
 ##################### temporary #####################
 cask "microsoft-teams"
 cask "dash"
+cask "deepl"
 
 ##################### Install Manually #####################
 
