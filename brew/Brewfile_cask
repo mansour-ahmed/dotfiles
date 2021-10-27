@@ -35,6 +35,7 @@ cask "vlc"
 cask "microsoft-teams"
 cask "dash"
 cask "deepl"
+cask "imageoptim"
 
 ##################### Install Manually #####################
 
