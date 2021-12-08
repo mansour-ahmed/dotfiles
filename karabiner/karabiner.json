@@ -1,300 +1,813 @@
 {
-    "global": {
-        "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
-    },
-    "profiles": [
+  "global": {
+    "check_for_updates_on_startup": true,
+    "show_in_menu_bar": false,
+    "show_profile_name_in_menu_bar": false
+  },
+  "profiles": [
+    {
+      "complex_modifications": {
+        "parameters": {
+          "basic.simultaneous_threshold_milliseconds": 50,
+          "basic.to_delayed_action_delay_milliseconds": 500,
+          "basic.to_if_alone_timeout_milliseconds": 1000,
+          "basic.to_if_held_down_threshold_milliseconds": 500,
+          "mouse_motion_to_scroll.speed": 100
+        },
+        "rules": [
+          {
+            "description": "Change caps_lock to fn",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "fn"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Change fn to left control",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "fn",
+                  "modifiers": {
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + i/j/k/l == vim directional Keys",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "up_arrow"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_arrow"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "down_arrow"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "right_arrow"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + i/u to pageup/pagedown",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "page_up"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "page_down"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + y/o to home/end",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "home"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "end"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + s/d/f to down/up/mute",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "volume_decrement"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "volume_increment"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "mute"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + q/w/e to Previous/Play-Pause/Next",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "rewind"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "w",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "play_or_pause"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "e",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "fastforward"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + ;/'/[ to ö/ä/å",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": ["left_option"]
+                  },
+                  {
+                    "key_code": "o"
+                  },
+                  {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "semicolon",
+                  "modifiers": {
+                    "mandatory": ["fn", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": ["left_option"]
+                  },
+                  {
+                    "key_code": "o",
+                    "modifiers": ["shift"]
+                  },
+                  {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": ["left_option"]
+                  },
+                  {
+                    "key_code": "a"
+                  },
+                  {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "quote",
+                  "modifiers": {
+                    "mandatory": ["fn", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "u",
+                    "modifiers": ["left_option"]
+                  },
+                  {
+                    "key_code": "a",
+                    "modifiers": ["shift"]
+                  },
+                  {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "open_bracket",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": ["left_option"]
+                  },
+                  {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "open_bracket",
+                  "modifiers": {
+                    "mandatory": ["fn", "shift"],
+                    "optional": ["caps_lock"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": ["left_option", "shift"]
+                  },
+                  {
+                    "key_code": "vk_none"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + numbers to function keys",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "1",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f1"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "2",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f2"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "3",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f3"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "4",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f4"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "5",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f5"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "6",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f6"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "7",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f7"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "8",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f8"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "9",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f9"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "0",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f10"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "hyphen",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f11"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "from": {
+                  "key_code": "equal_sign",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "f12"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "devices": [
         {
-            "complex_modifications": {
-                "parameters": {
-                    "basic.simultaneous_threshold_milliseconds": 50,
-                    "basic.to_delayed_action_delay_milliseconds": 500,
-                    "basic.to_if_alone_timeout_milliseconds": 1000,
-                    "basic.to_if_held_down_threshold_milliseconds": 500,
-                    "mouse_motion_to_scroll.speed": 100
-                },
-                "rules": [
-                    {
-                        "manipulators": [
-                            {
-                                "description": "Change caps_lock to command+control+option+shift.",
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "optional": [
-                                            "any"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_shift",
-                                        "modifiers": [
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Hyper + i/j/k/l == vim directional Keys",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "up_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "h",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "j",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "down_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "l",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "semicolon",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift",
-                                            "left_command",
-                                            "left_control",
-                                            "left_option"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "right_arrow",
-                                        "modifiers": [
-                                            "left_command"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    }
-                ]
-            },
-            "devices": [
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 8705,
-                        "vendor_id": 4617
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": false,
-                        "is_pointing_device": true,
-                        "product_id": 8705,
-                        "vendor_id": 4617
-                    },
-                    "ignore": false,
-                    "manipulate_caps_lock_led": false,
-                    "simple_modifications": []
-                },
-                {
-                    "disable_built_in_keyboard_if_exists": false,
-                    "fn_function_keys": [],
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": false,
-                        "product_id": 630,
-                        "vendor_id": 1452
-                    },
-                    "ignore": true,
-                    "manipulate_caps_lock_led": true,
-                    "simple_modifications": []
-                }
-            ],
-            "fn_function_keys": [
-                {
-                    "from": {
-                        "key_code": "f1"
-                    },
-                    "to": {
-                        "consumer_key_code": "display_brightness_decrement"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f2"
-                    },
-                    "to": {
-                        "consumer_key_code": "display_brightness_increment"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f3"
-                    },
-                    "to": {
-                        "key_code": "mission_control"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f4"
-                    },
-                    "to": {
-                        "key_code": "launchpad"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f5"
-                    },
-                    "to": {
-                        "key_code": "illumination_decrement"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f6"
-                    },
-                    "to": {
-                        "key_code": "illumination_increment"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f7"
-                    },
-                    "to": {
-                        "consumer_key_code": "rewind"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f8"
-                    },
-                    "to": {
-                        "consumer_key_code": "play_or_pause"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f9"
-                    },
-                    "to": {
-                        "consumer_key_code": "fast_forward"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f10"
-                    },
-                    "to": {
-                        "consumer_key_code": "mute"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f11"
-                    },
-                    "to": {
-                        "consumer_key_code": "volume_decrement"
-                    }
-                },
-                {
-                    "from": {
-                        "key_code": "f12"
-                    },
-                    "to": {
-                        "consumer_key_code": "volume_increment"
-                    }
-                }
-            ],
-            "name": "Main",
-            "parameters": {
-                "delay_milliseconds_before_open_device": 1000
-            },
-            "selected": true,
-            "simple_modifications": [],
-            "virtual_hid_keyboard": {
-                "country_code": 0,
-                "mouse_key_xy_scale": 100
-            }
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 8705,
+            "vendor_id": 4617
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": []
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": false,
+            "is_pointing_device": true,
+            "product_id": 8705,
+            "vendor_id": 4617
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": []
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 630,
+            "vendor_id": 1452
+          },
+          "ignore": true,
+          "manipulate_caps_lock_led": true,
+          "simple_modifications": []
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": false,
+            "is_pointing_device": true,
+            "product_id": 45088,
+            "vendor_id": 1133
+          },
+          "ignore": true,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": []
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": [],
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 632,
+            "vendor_id": 1452
+          },
+          "ignore": false,
+          "manipulate_caps_lock_led": false,
+          "simple_modifications": []
         }
-    ]
+      ],
+      "fn_function_keys": [
+        {
+          "from": {
+            "key_code": "f1"
+          },
+          "to": [
+            {
+              "consumer_key_code": "display_brightness_decrement"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f2"
+          },
+          "to": [
+            {
+              "consumer_key_code": "display_brightness_increment"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f3"
+          },
+          "to": [
+            {
+              "key_code": "mission_control"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f4"
+          },
+          "to": [
+            {
+              "key_code": "launchpad"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f5"
+          },
+          "to": [
+            {
+              "key_code": "illumination_decrement"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f6"
+          },
+          "to": [
+            {
+              "key_code": "illumination_increment"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f7"
+          },
+          "to": [
+            {
+              "consumer_key_code": "rewind"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f8"
+          },
+          "to": [
+            {
+              "consumer_key_code": "play_or_pause"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f9"
+          },
+          "to": [
+            {
+              "consumer_key_code": "fast_forward"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f10"
+          },
+          "to": [
+            {
+              "consumer_key_code": "mute"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f11"
+          },
+          "to": [
+            {
+              "consumer_key_code": "volume_decrement"
+            }
+          ]
+        },
+        {
+          "from": {
+            "key_code": "f12"
+          },
+          "to": [
+            {
+              "consumer_key_code": "volume_increment"
+            }
+          ]
+        }
+      ],
+      "name": "Main",
+      "parameters": {
+        "delay_milliseconds_before_open_device": 1000
+      },
+      "selected": true,
+      "simple_modifications": [],
+      "virtual_hid_keyboard": {
+        "country_code": 0,
+        "indicate_sticky_modifier_keys_state": true,
+        "mouse_key_xy_scale": 100
+      }
+    }
+  ]
 }
