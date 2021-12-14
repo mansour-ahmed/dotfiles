@@ -1,10 +1,9 @@
 {
   "markdown.extension.preview.autoShowPreviewToSide": false,
-  "window.zoomLevel": 2,
   "git.enableSmartCommit": true,
   "editor.wordWrap": "off",
   "editor.minimap.enabled": false,
-  "editor.formatOnPaste": false,
+  "editor.formatOnPaste": true,
   "files.exclude": {
     "**/__pycache__": true,
     "**/_build": true,
@@ -74,8 +73,7 @@
     "MD024": false
   },
   "workbench.editor.enablePreview": false,
-  "workbench.editor.openPositioning": "right",
-  "workbench.sideBar.location": "left",
+  "workbench.sideBar.location": "right",
   "html.format.wrapLineLength": 0,
   "html.format.extraLiners": "object",
   "html.suggest.angular1": false,
@@ -140,7 +138,6 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Winter is Coming (Dark Black)",
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -153,5 +150,14 @@
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "diffEditor.ignoreTrimWhitespace": false
+  "diffEditor.ignoreTrimWhitespace": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.editor.showTabs": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "eslint.run": "onSave",
+  "jest.autoEnable": true,
+  "window.zoomLevel": 2
 }
