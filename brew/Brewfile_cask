@@ -33,6 +33,7 @@ cask "microsoft-teams"
 cask "dash"
 cask "deepl"
 cask "imageoptim"
+cask "freetube"
 
 ##################### Install Manually #####################
 
