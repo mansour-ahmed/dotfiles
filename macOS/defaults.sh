@@ -55,6 +55,9 @@ function configure_system() {
     # Disable the “Are you sure you want to open this application?” dialog
     defaults write com.apple.LaunchServices LSQuarantine -bool false
 
+    # Shows all files in finder
+    defaults write com.apple.Finder AppleShowAllFiles true
+
     # Set the timezone; see 'sudo systemsetup -listtimezones' for other values
     sudo systemsetup -settimezone "Europe/Helsinki" > /dev/null
 }
