@@ -239,11 +239,11 @@
             ]
           },
           {
-            "description": "fn + q/w/e to Previous/Play-Pause/Next",
+            "description": "fn + w/e/r to Previous/Play-Pause/Next",
             "manipulators": [
               {
                 "from": {
-                  "key_code": "q",
+                  "key_code": "w",
                   "modifiers": {
                     "mandatory": ["fn"],
                     "optional": ["caps_lock"]
@@ -258,7 +258,7 @@
               },
               {
                 "from": {
-                  "key_code": "w",
+                  "key_code": "e",
                   "modifiers": {
                     "mandatory": ["fn"],
                     "optional": ["caps_lock"]
@@ -273,7 +273,7 @@
               },
               {
                 "from": {
-                  "key_code": "e",
+                  "key_code": "r",
                   "modifiers": {
                     "mandatory": ["fn"],
                     "optional": ["caps_lock"]
@@ -600,6 +600,42 @@
                 "to": [
                   {
                     "key_code": "f12"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "fn + q to `",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "q",
+                  "modifiers": {
+                    "mandatory": ["fn"],
+                    "optional": ["any"]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "backslash to `",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "non_us_backslash"
+                },
+                "to": [
+                  {
+                    "key_code": "grave_accent_and_tilde"
                   }
                 ],
                 "type": "basic"
