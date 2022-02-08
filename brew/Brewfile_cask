@@ -35,6 +35,7 @@ cask "vlc"
 cask "microsoft-teams"
 cask "dash"
 cask "grammarly"
+cask "github"
 
 ##################### Install Manually #####################
 
