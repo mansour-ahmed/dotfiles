@@ -10,7 +10,7 @@ cask "fantastical"
 cask "freetube"
 cask "flux"
 cask "firefox"
-cask "hazeover"
+cask "grammarly"
 cask "imageoptim"
 cask "karabiner-elements"
 cask "keka"
@@ -20,7 +20,6 @@ cask "libreoffice"
 cask "postman"
 cask "protonmail-bridge"
 cask "protonvpn"
-cask "rocket-typist"
 cask "slack"
 cask "signal"
 cask "spotify"
@@ -33,11 +32,9 @@ cask "vlc"
 
 ##################### temporary #####################
 cask "microsoft-teams"
-cask "dash"
-cask "grammarly"
-cask "github"
+cask "webstorm"
+
 
 ##################### Install Manually #####################
 
 # Bazecor
-# Logi Options
