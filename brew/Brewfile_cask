@@ -32,6 +32,7 @@ cask "vlc"
 ##################### temporary #####################
 cask "microsoft-teams"
 cask "bitwarden"
+cask "kindle"
 
 
 ##################### Install Manually #####################
