@@ -1,13 +1,11 @@
 brew "ack"
-brew "fish"
 brew "git"
 brew "jq"
-brew "node@14"
-brew "mas"
+brew "node"
+brew "starship"
 brew "openconnect"
 brew "yarn"
 brew "tldr"
 brew "wget"
 
 ##################### temporary #####################
-brew "contentful-cli"
