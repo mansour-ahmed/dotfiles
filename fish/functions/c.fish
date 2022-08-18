@@ -1,4 +1,0 @@
-  
-function c
-    clear
-end
