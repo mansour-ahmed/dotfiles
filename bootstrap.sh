@@ -12,7 +12,7 @@ main() {
     # To manage packages
     install_homebrew
     install_packages_with_brewfile
-    change_shell_to_fish
+    setup_zsh
     setup_symlinks
     update_hosts_file
     setup_macOS_defaults
@@ -85,6 +85,7 @@ function install_homebrew() {
         url=https://raw.githubusercontent.com/Homebrew/install/master/install
         if yes | /usr/bin/ruby -e "$(curl -fsSL ${url})"; then
             success "Homebrew installation succeeded"
+            brew analytics off
         else
             error "Homebrew installation failed"
             exit 1
@@ -98,7 +99,6 @@ function install_packages_with_brewfile() {
     TAP=${DOTFILES_REPO}/brew/Brewfile_tap
     BREW=${DOTFILES_REPO}/brew/Brewfile_brew
     CASK=${DOTFILES_REPO}/brew/Brewfile_cask
-    MAS=${DOTFILES_REPO}/brew/Brewfile_mas
 
     if hash parallel 2>/dev/null; then
         substep "parallel already exists"
@@ -112,14 +112,14 @@ function install_packages_with_brewfile() {
         fi
     fi
 
-    if (echo $TAP; echo $BREW; echo $CASK; echo $MAS) | parallel --verbose --linebuffer -j 4 brew bundle check --file={} &> /dev/null; then
+    if (echo $TAP; echo $BREW; echo $CASK) | parallel --verbose --linebuffer -j 4 brew bundle check --file={} &> /dev/null; then
         success "Brewfile packages are already installed"
     else
         if brew bundle --file="$TAP"; then
             substep "Brewfile_tap installation succeeded"
 
             export HOMEBREW_CASK_OPTS="--no-quarantine"
-            if (echo $BREW; echo $CASK; echo $MAS) | parallel --verbose --linebuffer -j 3 brew bundle --file={}; then
+            if (echo $BREW; echo $CASK) | parallel --verbose --linebuffer -j 3 brew bundle --file={}; then
                 success "Brewfile packages installation succeeded"
             else
                 error "Brewfile packages installation failed"
@@ -132,40 +132,24 @@ function install_packages_with_brewfile() {
     fi
 }
 
-function change_shell_to_fish() {
-    info "Fish shell setup"
-    if grep --quiet fish <<< "$SHELL"; then
-        success "Fish shell already exists"
+function setup_zsh() {
+    info "Setting up zsh"
+    current_dir=$(pwd)
+
+    cd ${DOTFILES_REPO}/zsh
+    if bash config.sh; then
+        cd $current_dir
+        success "zsh updated successfully"
     else
-        user=$(whoami)
-        substep "Adding Fish executable to /etc/shells"
-        if grep --fixed-strings --line-regexp --quiet \
-            "/usr/local/bin/fish" /etc/shells; then
-            substep "Fish executable already exists in /etc/shells"
-        else
-            if echo /usr/local/bin/fish | sudo tee -a /etc/shells > /dev/null;
-            then
-                substep "Fish executable successfully added to /etc/shells"
-            else
-                error "Failed to add Fish executable to /etc/shells"
-                exit 1
-            fi
-        fi
-        substep "Switching shell to Fish for \"${user}\""
-        if sudo chsh -s /usr/local/bin/fish "$user"; then
-            success "Fish shell successfully set for \"${user}\""
-        else
-            error "Please try setting Fish shell again"
-        fi
+        cd $current_dir
+        error "zsh update failed"
+        exit 1
     fi
 }
 
 function setup_symlinks() {
     info "Setting up symlinks"
 
-    # Fish
-    symlink "fish:functions"   ${DOTFILES_REPO}/fish/functions   ~/.config/fish/functions
-    symlink "fish:config.fish" ${DOTFILES_REPO}/fish/config.fish ~/.config/fish/config.fish
     symlink "karabiner" ${DOTFILES_REPO}/karabiner ~/.config/karabiner
 
     success "Symlinks successfully setup"
